@@ -6,8 +6,9 @@
 		<script type="text/javascript">
 			window.onload = function() {
 
-				//Inicializando a arvore
+				//Initializing Tree
 
+				//Tree Context Menu Structure
 				var contex_menu = {
 					'context1' : {
 						elements : [
@@ -93,10 +94,12 @@
 					}
 				};
 
+				//Creating the tree
 				tree = createTree('div_tree','white',contex_menu);
 
 				div_log = document.getElementById('div_log');
 
+				//Setting custom events
 				tree.nodeBeforeOpenEvent = function(node) {
 					div_log.innerHTML += node.text + ': Before expand event<br/>';
 				}
@@ -109,8 +112,7 @@
 					div_log.innerHTML += node.text + ': Before collapse event<br/>';
 				}
 
-				//Loop para criar nodos e filhos.
-				//createNode(texto, expandido, imagem, pai)
+				//Loop to create test nodes
 				for (var i=1; i<5; i++) {
 					node1 = tree.createNode('Level 0 - Node ' + i,false,'images/star.png',null,null,'context1');
 					for (var j=1; j<5; j++) {
@@ -122,20 +124,17 @@
 								for (var m=1; m<5; m++) {
 									tree.createNode('Level 4 - Node ' + m, false, 'images/file.png', node4,null,'context1');
 								}
-								tree.createNode('Teste Nodo', false, 'images/file.png', node4,'ae','context1');
 							}
 						}
 					}
 				}
-				tree.createNode('Teste Nodo', false, null, null,'ae','context1');
-				//Renderizando a arvore
+
+				//Rendering the tree
 				tree.drawTree('div_tree');
 
-				nodex = tree.createNode('Real Time',false,'images/leaf.png',null,null,'context1');
+				//Adding node after tree is already rendered
+				tree.createNode('Real Time',false,'images/leaf.png',null,null,'context1');
 
-				//tree.setText(nodex,'ae');
-
-				tree.createNode('Real Time',false,'images/leaf.png',nodex,null,'context1');
 
 			};
 
