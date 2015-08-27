@@ -116,13 +116,13 @@
 				for (var i=1; i<5; i++) {
 					node1 = tree.createNode('Level 0 - Node ' + i,false,'images/star.png',null,null,'context1');
 					for (var j=1; j<5; j++) {
-						node2 = tree.createNode('Level 1 - Node ' + j, false, 'images/blue_key.png', node1,null,'context1');
+						node2 = node1.createChildNode('Level 1 - Node ' + j, false, 'images/blue_key.png',null,'context1');
 						for (var k=1; k<5; k++) {
-							node3 = tree.createNode('Level 2 - Node ' + k, false, 'images/key_green.png', node2,null,'context1');
+							node3 = node2.createChildNode('Level 2 - Node ' + k, false, 'images/key_green.png',null,'context1');
 							for (var l=1; l<5; l++) {
-								node4 = tree.createNode('Level 3 - Node ' + l, false, 'images/monitor.png', node3,null,'context1');
+								node4 = node3.createChildNode('Level 3 - Node ' + l, false, 'images/monitor.png',null,'context1');
 								for (var m=1; m<5; m++) {
-									tree.createNode('Level 4 - Node ' + m, false, 'images/file.png', node4,null,'context1');
+									node4.createChildNode('Level 4 - Node ' + m, false, 'images/file.png',null,'context1');
 								}
 							}
 						}
