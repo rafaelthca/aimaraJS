@@ -1,0 +1,165 @@
+﻿<html>
+	<head>
+		<title>Tree</title>
+		<link rel="stylesheet" type="text/css" href="css/Aimara.css">
+		<script src="lib/Aimara.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+
+				//Inicializando a arvore
+
+				var contex_menu = {
+					'context1' : {
+						elements : [
+							{
+								text : 'Node Actions',
+								icon: 'images/blue_key.png',
+								action : function(node) {
+
+								},
+								submenu: {
+									elements : [
+										{
+											text : 'Toggle Node',
+											icon: 'images/leaf.png',
+											action : function(node) {
+												node.toggleNode();
+											}
+										},
+										{
+											text : 'Expand Node',
+											icon: 'images/leaf.png',
+											action : function(node) {
+												node.expandNode();
+											}
+										},
+										{
+											text : 'Collapse Node',
+											icon: 'images/leaf.png',
+											action : function(node) {
+												node.collapseNode();
+											}
+										},
+										{
+											text : 'Expand Subtree',
+											icon: 'images/tree.png',
+											action : function(node) {
+												node.expandSubtree();
+											}
+										},
+										{
+											text : 'Collapse Subtree',
+											icon: 'images/tree.png',
+											action : function(node) {
+												node.collapseSubtree();
+											}
+										},
+										{
+											text : 'Delete Node',
+											icon: 'images/delete.png',
+											action : function(node) {
+												node.removeNode();
+											}
+										},
+									]
+								}
+							},
+							{
+								text : 'Child Actions',
+								icon: 'images/blue_key.png',
+								action : function(node) {
+
+								},
+								submenu: {
+									elements : [
+										{
+											text : 'Create Child Node',
+											icon: 'images/leaf.png',
+											action : function(node) {
+												node.createChildNode('Created',false,'images/folder.png',null,'context1');
+											}
+										},
+										{
+											text : 'Delete Child Nodes',
+											icon: 'images/delete.png',
+											action : function(node) {
+												node.removeChildNodes();
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				};
+
+				tree = createTree('div_tree','white',contex_menu);
+
+				div_log = document.getElementById('div_log');
+
+				tree.nodeBeforeOpenEvent = function(node) {
+					div_log.innerHTML += node.text + ': Before expand event<br/>';
+				}
+
+				tree.nodeAfterOpenEvent = function(node) {
+					div_log.innerHTML += node.text + ': After expand event<br/>';
+				}
+
+				tree.nodeBeforeCloseEvent = function(node) {
+					div_log.innerHTML += node.text + ': Before collapse event<br/>';
+				}
+
+				//Loop para criar nodos e filhos.
+				//createNode(texto, expandido, imagem, pai)
+				for (var i=1; i<5; i++) {
+					node1 = tree.createNode('Level 0 - Node ' + i,false,'images/star.png',null,null,'context1');
+					for (var j=1; j<5; j++) {
+						node2 = tree.createNode('Level 1 - Node ' + j, false, 'images/blue_key.png', node1,null,'context1');
+						for (var k=1; k<5; k++) {
+							node3 = tree.createNode('Level 2 - Node ' + k, false, 'images/key_green.png', node2,null,'context1');
+							for (var l=1; l<5; l++) {
+								node4 = tree.createNode('Level 3 - Node ' + l, false, 'images/monitor.png', node3,null,'context1');
+								for (var m=1; m<5; m++) {
+									tree.createNode('Level 4 - Node ' + m, false, 'images/file.png', node4,null,'context1');
+								}
+								tree.createNode('Teste Nodo', false, 'images/file.png', node4,'ae','context1');
+							}
+						}
+					}
+				}
+				tree.createNode('Teste Nodo', false, null, null,'ae','context1');
+				//Renderizando a arvore
+				tree.drawTree('div_tree');
+
+				nodex = tree.createNode('Real Time',false,'images/leaf.png',null,null,'context1');
+
+				//tree.setText(nodex,'ae');
+
+				tree.createNode('Real Time',false,'images/leaf.png',nodex,null,'context1');
+
+			};
+
+			function expand_all() {
+				tree.expandTree();
+			}
+
+			function clear_log() {
+				document.getElementById('div_log').innerHTML = '';
+			}
+
+			function collapse_all() {
+				tree.collapseTree();
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Aimara.js - Pure Javascript Tree Component</h2>
+		<button onclick="expand_all()">Expand All Nodes</button>
+		<button onclick="collapse_all()">Collapse All Nodes</button>
+		<button onclick="clear_log()">Clear Log</button>
+		<br/><br/>
+		<div id="div_log"></div>
+		<div id="div_tree" style="display: inline-block; 	width: 300px;"></div>
+
+	</body>
+</html>
