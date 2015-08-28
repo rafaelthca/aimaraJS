@@ -1,7 +1,8 @@
-﻿<html>
+<html>
 	<head>
-		<title>Tree</title>
+		<title>aimaraJS Example</title>
 		<link rel="stylesheet" type="text/css" href="css/Aimara.css">
+		<link rel="stylesheet" type="text/css" href="css/Example.css">
 		<script src="lib/Aimara.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			window.onload = function() {
@@ -113,18 +114,18 @@
 				}
 
 				//Loop to create test nodes
-				for (var i=1; i<5; i++) {
+				for (var i=1; i<10; i++) {
 					node1 = tree.createNode('Level 0 - Node ' + i,false,'images/star.png',null,null,'context1');
 					for (var j=1; j<5; j++) {
 						node2 = node1.createChildNode('Level 1 - Node ' + j, false, 'images/blue_key.png',null,'context1');
 						for (var k=1; k<5; k++) {
-							node3 = node2.createChildNode('Level 2 - Node ' + k, false, 'images/key_green.png',null,'context1');
-							for (var l=1; l<5; l++) {
-								node4 = node3.createChildNode('Level 3 - Node ' + l, false, 'images/monitor.png',null,'context1');
+							node3 = node2.createChildNode('Level 2 - Node ' + k, false, 'images/monitor.png',null,'context1');
+							/*for (var l=1; l<5; l++) {
+								node4 = node3.createChildNode('Level 3 - Node ' + l, false, 'images/key_green.png',null,'context1');
 								for (var m=1; m<5; m++) {
 									node4.createChildNode('Level 4 - Node ' + m, false, 'images/file.png',null,'context1');
 								}
-							}
+							}*/
 						}
 					}
 				}
@@ -152,13 +153,14 @@
 		</script>
 	</head>
 	<body>
-		<h2>Aimara.js - Pure Javascript Tree Component</h2>
+		<img src="images/aimarajs2.png"/>
+		<h2>Pure Javascript Tree Component</h2>
 		<button onclick="expand_all()">Expand All Nodes</button>
 		<button onclick="collapse_all()">Collapse All Nodes</button>
 		<button onclick="clear_log()">Clear Log</button>
 		<br/><br/>
 		<div id="div_log"></div>
-		<div id="div_tree" style="display: inline-block; 	width: 300px;"></div>
+		<div id="div_tree"></div>
 
 	</body>
 </html>

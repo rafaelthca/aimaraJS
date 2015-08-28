@@ -1,4 +1,4 @@
-## AimaraJS - Pure Javascript TreeView Component
+## aimaraJS - Pure Javascript TreeView Component
 
 This javascript component was created as a response to other TreeView components that did not satisfied my project requirements.
 
