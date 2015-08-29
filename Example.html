@@ -82,6 +82,14 @@
 											}
 										},
 										{
+											text : 'Create 1000 Child Nodes',
+											icon: 'images/add1.png',
+											action : function(node) {
+												for (var i=0; i<1000; i++)
+													node.createChildNode('Created Node - ' + i,false,'images/file.png',null,'context1');
+											}
+										},
+										{
 											text : 'Delete Child Nodes',
 											icon: 'images/delete.png',
 											action : function(node) {
