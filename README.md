@@ -4,6 +4,8 @@ This javascript component was created as a response to other TreeView components
 
 The main objective of this component is to be able to dynamically add and remove nodes from the tree as fast as possible and also offer features to interact with the tree.
 
+[Simple Example](http://rafaelthca.github.io/aimaraJS/Example.html)
+
 Features:
 
 * Create an initial tree structure and render it;
