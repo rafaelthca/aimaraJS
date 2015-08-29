@@ -151,7 +151,7 @@ span.node_selected a {
 }
 
 .menu {
-	width: 200px;
+	width: 175px;
 	position: absolute;
 	background: #F1F1F1;
 	-webkit-user-select: none; /* Chrome/Safari */
@@ -165,7 +165,7 @@ span.node_selected a {
 .sub-menu {
   display: none;
   position: absolute;
-  min-width: 150px;
+  min-width: 175px;
 	box-shadow: 2px 2px 3px #BDBDBD;
 }
 
