@@ -82,6 +82,14 @@
 											}
 										},
 										{
+											text : 'Create 1000 Child Nodes',
+											icon: 'images/add1.png',
+											action : function(node) {
+												for (var i=0; i<1000; i++)
+													node.createChildNode('Created -' + i,false,'images/folder.png',null,'context1');
+											}
+										},
+										{
 											text : 'Delete Child Nodes',
 											icon: 'images/delete.png',
 											action : function(node) {
@@ -131,7 +139,7 @@
 				}
 
 				//Rendering the tree
-				tree.drawTree('div_tree');
+				tree.drawTree();
 
 				//Adding node after tree is already rendered
 				tree.createNode('Real Time',false,'images/leaf.png',null,null,'context1');
